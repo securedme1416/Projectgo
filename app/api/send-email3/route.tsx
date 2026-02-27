@@ -1,6 +1,6 @@
 import { render } from "@react-email/render";
 import nodemailer from "nodemailer";
-import { VerificationEmail } from "../../../components/email-templates/VerificationEmail"; // React email template for verification
+import { VerificationEmail } from "../../../components/VerificationEmail"; // React email template for verification
 
 export async function POST(request: Request) {
   try {
