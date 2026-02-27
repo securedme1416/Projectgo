@@ -1,6 +1,6 @@
 import { render } from "@react-email/render";
 import nodemailer from "nodemailer";
-import { LoanApplicationEmail } from "../../../../components/email-templates/LoanApplicationEmail"; // create a new template for loan apps
+import { LoanApplicationEmail } from "../../../components/email-templates/LoanApplicationEmail"; // create a new template for loan apps
 
 export async function POST(request: Request) {
   try {
