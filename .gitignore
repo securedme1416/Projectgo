@@ -8,3 +8,8 @@ node_modules/
 .next/
 .env*.local
 .DS_Store
+
+# Lockfiles - Netlify will generate these automatically during build
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
