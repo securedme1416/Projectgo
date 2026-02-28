@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function LoanApplication() {
   const [formData, setFormData] = useState({
@@ -86,6 +87,11 @@ export default function LoanApplication() {
     }
   };
 
+  const whatsappNumber = '2348012345678'; // Replace with your WhatsApp number
+  const whatsappMessage = encodeURIComponent(
+    'Hello! I would like to chat with Moni Africa.'
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
@@ -107,7 +113,9 @@ export default function LoanApplication() {
           </div>
 
           <div className="bg-blue-50 rounded-lg p-6 mb-8 text-center">
-            <h2 className="text-2xl font-bold text-gray-800 mb-3">GET LOAN UP TO 10 MILLION NAIRA</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">
+              GET LOAN UP TO 10 MILLION NAIRA
+            </h2>
             <p className="text-gray-700">
               Get loans with ease, low interest fees and less documentation. Hassle free service guaranteed!
             </p>
@@ -362,6 +370,19 @@ export default function LoanApplication() {
               >
                 {loading ? 'Submitting...' : 'Submit Application'}
               </button>
+
+              {/* WhatsApp Button immediately below Submit */}
+              <div className="mt-4 flex justify-center">
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg flex items-center gap-2 transition"
+                >
+                  <FaWhatsapp size={20} />
+                  Chat on WhatsApp
+                </a>
+              </div>
             </form>
           </div>
         </div>
@@ -370,4 +391,4 @@ export default function LoanApplication() {
       <Footer />
     </div>
   );
-      }
+                      }
