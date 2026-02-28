@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   generator: 'Next.js 16',
   keywords:
     'loan service, business loan, personal loan, Nigeria, SME lending, financial technology',
-  authors: [{ name: 'Drance Nigeria Limited' }],
-  creator: 'Drance Nigeria Limited',
+  authors: [{ name: 'Monia Africa Nigeria Limited' }],
+  creator: 'Monia Africa Nigeria Limited',
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
