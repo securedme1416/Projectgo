@@ -31,48 +31,7 @@ export default function PaymentGateway() {
             />
           </div>
 
-          {/* Payment Instructions */}
-          <div className="bg-blue-50 rounded-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Click on the Payment Button below to proceed to the payment gateway
-            </h2>
-            <p className="text-gray-700 mb-6">
-              Make your loan payments securely through our integrated payment gateway. We accept all major payment methods.
-            </p>
-          </div>
-
-          {/* Payment Methods Info */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-white rounded-lg shadow p-6 border-l-4 border-blue-600">
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Secure Payment</h3>
-              <p className="text-gray-700 text-sm">
-                Your payment information is encrypted and secured using industry-standard protocols.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow p-6 border-l-4 border-green-600">
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Multiple Options</h3>
-              <p className="text-gray-700 text-sm">
-                Pay using bank transfer, card payment, or mobile wallet.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow p-6 border-l-4 border-purple-600">
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Instant Confirmation</h3>
-              <p className="text-gray-700 text-sm">
-                Receive immediate confirmation after successful payment.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow p-6 border-l-4 border-orange-600">
-              <h3 className="text-lg font-bold text-gray-800 mb-2">24/7 Support</h3>
-              <p className="text-gray-700 text-sm">
-                Our support team is available to assist with payment inquiries.
-              </p>
-            </div>
-          </div>
-
-          {/* Gateway Image (must be directly before payment button) */}
+          {/* Gateway Image (directly before payment button) */}
           <div className="mb-8 flex justify-center">
             <Image
               src="/gateway2.png"
@@ -95,7 +54,47 @@ export default function PaymentGateway() {
             </Link>
           </div>
 
-          {/* Additional Information */}
+          {/* Payment Writeup BELOW the button */}
+          <div className="bg-blue-50 rounded-lg p-8 mb-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Click on the Payment Button below to proceed to the payment gateway
+            </h2>
+            <p className="text-gray-700 mb-6">
+              Make your loan payments securely through our integrated payment gateway. We accept all major payment methods.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-lg shadow p-6 border-l-4 border-blue-600">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">Secure Payment</h3>
+                <p className="text-gray-700 text-sm">
+                  Your payment information is encrypted and secured using industry-standard protocols.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow p-6 border-l-4 border-green-600">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">Multiple Options</h3>
+                <p className="text-gray-700 text-sm">
+                  Pay using bank transfer, card payment, or mobile wallet.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow p-6 border-l-4 border-purple-600">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">Instant Confirmation</h3>
+                <p className="text-gray-700 text-sm">
+                  Receive immediate confirmation after successful payment.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow p-6 border-l-4 border-orange-600">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">24/7 Support</h3>
+                <p className="text-gray-700 text-sm">
+                  Our support team is available to assist with payment inquiries.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Payment Information */}
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h3 className="text-xl font-bold text-gray-800 mb-4">Payment Information</h3>
 
