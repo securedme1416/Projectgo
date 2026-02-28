@@ -43,48 +43,19 @@ export function Header() {
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
-      {/* Top bar with tiny logo and centered site title */}
-      <div className="px-4 py-2 border-b border-gray-200 flex items-center justify-center relative">
-        {/* Tiny logo left */}
-        <div className="absolute left-4">
-          <Link href="/">
-            <img src="/logo-small.png" alt="Moni Africa Logo" className="h-8 w-auto" />
-          </Link>
-        </div>
-
-        {/* Centered header title */}
-        <h1 className="text-lg md:text-xl font-bold text-gray-700">Moni Africa</h1>
-
-        {/* Top contact button (optional) */}
-        <div className="absolute right-4">
-          <Link
-            href="/contact"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm font-semibold transition"
-          >
-            CONTACT US
-          </Link>
-        </div>
+      {/* Top Bar */}
+      <div className="px-4 py-2 border-b border-gray-200 flex items-center">
+        {/* Logo on the left */}
+        <Link href="/">
+          <img src="/logo-small.png" alt="Moni Africa Logo" className="h-10 w-auto" />
+        </Link>
       </div>
 
       {/* Main header with navigation */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-4 px-4">
-        <div className="max-w-7xl mx-auto">
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center justify-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="hover:text-blue-100 transition font-semibold text-sm whitespace-nowrap"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Mobile Header */}
-          <div className="flex md:hidden items-center justify-between">
-            <h1 className="text-xl font-bold">Moni Africa</h1>
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          {/* Mobile menu button */}
+          <div className="md:hidden">
             <button
               ref={buttonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -94,7 +65,28 @@ export function Header() {
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
+
+          {/* Centered site title */}
+          <h1 className="text-xl md:text-2xl font-bold text-center flex-1">
+            Moni Africa
+          </h1>
+
+          {/* Placeholder for alignment on desktop (so title stays centered) */}
+          <div className="hidden md:block w-6" />
         </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center justify-center gap-8 mt-4">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="hover:text-blue-100 transition font-semibold text-sm whitespace-nowrap"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
 
       {/* Mobile Menu */}
