@@ -43,13 +43,13 @@ export function Header() {
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
-      {/* Full-width header image */}
+      {/* Full-width header image with small vertical height */}
       <div className="w-full">
         <Link href="/">
           <img
             src="/moniafrica.png"
             alt="Moni Africa Banner"
-            className="w-full h-40 md:h-56 object-cover"
+            className="w-full h-12 md:h-12 object-cover"
           />
         </Link>
       </div>
