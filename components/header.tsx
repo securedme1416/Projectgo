@@ -43,7 +43,7 @@ export function Header() {
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
-      {/* Full-width header image with small vertical height */}
+      {/* Full-width header image */}
       <div className="w-full">
         <Link href="/">
           <img
@@ -57,20 +57,20 @@ export function Header() {
       {/* Main header with navigation */}
       <div className="bg-transparent text-white py-4 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Left placeholder (empty for centering) */}
+          {/* Left placeholder */}
           <div className="w-6 md:w-12"></div>
 
-          {/* Centered site title */}
-          <h1 className="text-xl md:text-2xl font-bold text-center flex-1">
+          {/* Centered site title with subtle text shadow */}
+          <h1 className="text-xl md:text-2xl font-bold text-center flex-1 drop-shadow-md">
             Moni Africa
           </h1>
 
-          {/* Right: Mobile menu button */}
+          {/* Right: Mobile menu button with shadow */}
           <div className="md:hidden">
             <button
               ref={buttonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 hover:bg-white/20 rounded transition text-white"
+              className="p-2 rounded transition text-white drop-shadow-md hover:bg-white/20"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -84,7 +84,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="hover:text-blue-100 transition font-semibold text-sm whitespace-nowrap"
+              className="hover:text-blue-100 transition font-semibold text-sm whitespace-nowrap drop-shadow-sm"
             >
               {item.label}
             </Link>
