@@ -46,7 +46,7 @@ export function Header() {
       {/* Top Bar with Logo */}
       <div className="px-4 py-2 border-b border-gray-200 flex items-center">
         <Link href="/">
-          <img src="/logo-small.png" alt="Moni Africa Logo" className="h-10 w-auto" />
+          <img src="/moniafrica.png" alt="Moni Africa Logo" className="h-10 w-auto" />
         </Link>
       </div>
 
