@@ -42,30 +42,28 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
+    <header className="relative w-full sticky top-0 z-50">
       {/* Full-width header image */}
-      <div className="w-full">
+      <div className="w-full relative">
         <Link href="/">
           <img
             src="/moniafrica.png"
             alt="Moni Africa Banner"
-            className="w-full h-12 md:h-12 object-cover"
+            className="w-full h-24 md:h-32 object-cover"
           />
         </Link>
-      </div>
 
-      {/* Main header with navigation */}
-      <div className="bg-transparent text-white py-4 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Overlay for title and menu button */}
+        <div className="absolute inset-0 flex items-center justify-between px-4">
           {/* Left placeholder */}
           <div className="w-6 md:w-12"></div>
 
-          {/* Centered site title with subtle text shadow */}
-          <h1 className="text-xl md:text-2xl font-bold text-center flex-1 drop-shadow-md">
+          {/* Centered site title */}
+          <h1 className="text-xl md:text-2xl font-bold text-white text-center drop-shadow-md">
             Moni Africa
           </h1>
 
-          {/* Right: Mobile menu button with shadow */}
+          {/* Right: Mobile menu button */}
           <div className="md:hidden">
             <button
               ref={buttonRef}
@@ -77,20 +75,20 @@ export function Header() {
             </button>
           </div>
         </div>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center justify-center gap-8 mt-4">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="hover:text-blue-100 transition font-semibold text-sm whitespace-nowrap drop-shadow-sm"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
       </div>
+
+      {/* Desktop Navigation */}
+      <nav className="hidden md:flex items-center justify-center gap-8 mt-2">
+        {navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="hover:text-blue-100 transition font-semibold text-sm whitespace-nowrap drop-shadow-sm"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
