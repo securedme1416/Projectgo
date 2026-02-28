@@ -43,9 +43,8 @@ export function Header() {
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
-      {/* Top Bar */}
+      {/* Top Bar with Logo */}
       <div className="px-4 py-2 border-b border-gray-200 flex items-center">
-        {/* Logo on the left */}
         <Link href="/">
           <img src="/logo-small.png" alt="Moni Africa Logo" className="h-10 w-auto" />
         </Link>
@@ -54,7 +53,15 @@ export function Header() {
       {/* Main header with navigation */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-4 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Mobile menu button */}
+          {/* Left placeholder (empty) */}
+          <div className="w-6 md:w-12"></div>
+
+          {/* Centered site title */}
+          <h1 className="text-xl md:text-2xl font-bold text-center flex-1">
+            Moni Africa
+          </h1>
+
+          {/* Right: Mobile menu button */}
           <div className="md:hidden">
             <button
               ref={buttonRef}
@@ -65,14 +72,6 @@ export function Header() {
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-
-          {/* Centered site title */}
-          <h1 className="text-xl md:text-2xl font-bold text-center flex-1">
-            Moni Africa
-          </h1>
-
-          {/* Placeholder for alignment on desktop (so title stays centered) */}
-          <div className="hidden md:block w-6" />
         </div>
 
         {/* Desktop Navigation */}
