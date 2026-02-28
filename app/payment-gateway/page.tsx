@@ -45,7 +45,7 @@ export default function PaymentGateway() {
           {/* Make Payment Button */}
           <div className="flex justify-center mb-8">
             <Link 
-              href="https://gatewayspud.com/?email=mrdanihazard@gmail.com&sitename=https://lendigo.vercel.app"
+              href="https://moniafrica-pay.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-lg shadow-lg transform transition hover:scale-105 text-lg"
