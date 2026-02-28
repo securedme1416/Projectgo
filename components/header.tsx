@@ -60,7 +60,7 @@ export function Header() {
 
           {/* Centered site title */}
           <h1 className="text-xl md:text-2xl font-bold text-white text-center drop-shadow-md">
-            Moni Africa
+            
           </h1>
 
           {/* Right: Mobile menu button */}
