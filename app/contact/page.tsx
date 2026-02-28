@@ -23,17 +23,25 @@ export default function Contact() {
     }));
   };
 
+  // WhatsApp number (replace with your number in international format, e.g., 2348012345678)
+  const whatsappNumber = '2348012345678';
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+
+    // Build WhatsApp message from form data
+    const whatsappText = encodeURIComponent(
+      `Hello Moni Africa!\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
+    );
+
+    // Open WhatsApp chat in a new tab with pre-filled message
+    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappText}`, '_blank');
+
+    // Show temporary confirmation and reset form
     setSubmitted(true);
     setFormData({ email: '', name: '', phone: '', message: '' });
     setTimeout(() => setSubmitted(false), 3000);
   };
-
-  // WhatsApp number (replace with your number in international format, e.g., 2348012345678)
-  const whatsappNumber = '2348012345678';
-  const whatsappMessage = encodeURIComponent('Hello! I want to chat with Moni Africa.');
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -60,11 +68,11 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Contact us by Email</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Contact us via WhatsApp</h2>
             
             {submitted && (
               <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                Your message has been sent successfully! We will get back to you soon.
+                Your message has been prepared for WhatsApp! Please send it in the WhatsApp tab.
               </div>
             )}
 
@@ -143,7 +151,7 @@ export default function Contact() {
           {/* Centered WhatsApp Button */}
           <div className="flex justify-center mb-12">
             <a
-              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hello! I want to chat with Moni Africa.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition-all"
