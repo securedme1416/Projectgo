@@ -127,18 +127,6 @@ export default function LoanApplication() {
           <div className="bg-white rounded-lg shadow-lg p-8">  
             <h3 className="text-2xl font-bold text-gray-800 mb-6">Registration Form</h3>  
 
-            {submitted && (  
-              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">  
-                Your loan application has been submitted successfully! We will review your application and contact you shortly.  
-              </div>  
-            )}  
-
-            {error && (  
-              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">  
-                {error}  
-              </div>  
-            )}  
-
             <form onSubmit={handleSubmit} className="space-y-6">  
               {/* Full Name */}  
               <div>  
@@ -365,13 +353,26 @@ export default function LoanApplication() {
                 </div>  
               </div>  
 
+              {/* Success / Error Messages placed immediately above submit button */}
+              {submitted && (
+                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center">
+                  Your loan application has been submitted successfully! We will review your application and contact you shortly.
+                </div>
+              )}
+
+              {error && (
+                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-center">
+                  {error}
+                </div>
+              )}
+
               {/* Submit Button */}  
               <button  
                 type="submit"  
                 disabled={loading}  
                 className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold py-3 rounded-lg transition"  
               >  
-                {loading ? 'Submitting...' : 'Submit Application'}  
+                {loading ? 'Submitting...' : 'Submit Application'}
               </button>  
 
               {/* WhatsApp Button immediately below Submit */}  
@@ -394,4 +395,4 @@ export default function LoanApplication() {
       <Footer />  
     </div>
   );
-}
+                                                                                       }
