@@ -18,14 +18,16 @@ export default function PaymentGateway() {
 
         {/* Main Content */}
         <div className="max-w-4xl mx-auto px-4 py-8">
-          {/* Header Image */}
+
+          {/* Top Image (home7) */}
           <div className="mb-8 flex justify-center">
             <Image
-              src="https://lendig0.simdif.com/images/public/sd_678a17198c7c1.jpg"
-              alt="Payment Gateway"
+              src="/home7.png"
+              alt="Moni Africa Payment"
               width={960}
-              height={896}
+              height={900}
               className="rounded-lg shadow-lg max-w-full h-auto"
+              priority
             />
           </div>
 
@@ -51,23 +53,34 @@ export default function PaymentGateway() {
             <div className="bg-white rounded-lg shadow p-6 border-l-4 border-green-600">
               <h3 className="text-lg font-bold text-gray-800 mb-2">Multiple Options</h3>
               <p className="text-gray-700 text-sm">
-                Pay using bank transfer, card payment, or mobile wallet. Choose what works best for you.
+                Pay using bank transfer, card payment, or mobile wallet.
               </p>
             </div>
 
             <div className="bg-white rounded-lg shadow p-6 border-l-4 border-purple-600">
               <h3 className="text-lg font-bold text-gray-800 mb-2">Instant Confirmation</h3>
               <p className="text-gray-700 text-sm">
-                Receive immediate payment confirmation and transaction details in your email.
+                Receive immediate confirmation after successful payment.
               </p>
             </div>
 
             <div className="bg-white rounded-lg shadow p-6 border-l-4 border-orange-600">
               <h3 className="text-lg font-bold text-gray-800 mb-2">24/7 Support</h3>
               <p className="text-gray-700 text-sm">
-                Our support team is available round the clock to assist with payment inquiries.
+                Our support team is available to assist with payment inquiries.
               </p>
             </div>
+          </div>
+
+          {/* Gateway Image (must be directly before payment button) */}
+          <div className="mb-8 flex justify-center">
+            <Image
+              src="/gateway2.png"
+              alt="Secure Payment Gateway"
+              width={960}
+              height={900}
+              className="rounded-lg shadow-lg max-w-full h-auto"
+            />
           </div>
 
           {/* Make Payment Button */}
@@ -85,29 +98,33 @@ export default function PaymentGateway() {
           {/* Additional Information */}
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h3 className="text-xl font-bold text-gray-800 mb-4">Payment Information</h3>
+
             <div className="space-y-4 text-gray-700">
               <div>
                 <h4 className="font-semibold text-gray-800 mb-2">What You Need:</h4>
                 <ul className="list-disc list-inside space-y-1">
                   <li>Your loan reference number</li>
-                  <li>Valid payment method (card/bank account)</li>
+                  <li>Valid payment method</li>
                   <li>Amount to be paid</li>
                 </ul>
               </div>
+
               <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Payment Processing:</h4>
+                <h4 className="font-semibold text-gray-800 mb-2">Processing Time:</h4>
                 <p>
-                  All payments are processed securely and will be reflected in your account within 24-48 hours.
+                  Payments are processed securely and reflected within 24–48 hours.
                 </p>
               </div>
+
               <div>
                 <h4 className="font-semibold text-gray-800 mb-2">Need Help?</h4>
                 <p>
-                  If you encounter any issues during payment, please contact our support team at support@lendigo.com
+                  Contact our support team for assistance with payment issues.
                 </p>
               </div>
             </div>
           </div>
+
         </div>
       </main>
 
