@@ -40,7 +40,7 @@ export default function Home() {
 
             <div className="flex justify-center">
               <Image
-                src="/images/home1.png"
+                src="/home1.png"
                 alt="Loan Banner"
                 width={960}
                 height={600}
@@ -64,7 +64,7 @@ export default function Home() {
             {/* SECTION 2 */}
             <div className="flex justify-center">
               <Image
-                src="/images/home2.png"
+                src="/home2.png"
                 alt="Loan Process"
                 width={960}
                 height={600}
@@ -106,7 +106,7 @@ export default function Home() {
             {/* SECTION 3 */}
             <div className="flex justify-center">
               <Image
-                src="/images/home3.png"
+                src="/home3.png"
                 alt="Loan Benefits"
                 width={960}
                 height={600}
@@ -128,7 +128,7 @@ export default function Home() {
             {/* SECTION 4 */}
             <div className="flex justify-center">
               <Image
-                src="/images/home4.png"
+                src="/home4.png"
                 alt="Loan Structure"
                 width={960}
                 height={600}
@@ -138,7 +138,7 @@ export default function Home() {
 
             <div className="flex justify-center">
               <Image
-                src="/images/home5.png"
+                src="/home5.png"
                 alt="Loan Terms"
                 width={960}
                 height={600}
@@ -187,7 +187,7 @@ export default function Home() {
             {/* Remaining Images */}
             <div className="flex justify-center">
               <Image
-                src="/images/home6.png"
+                src="/home6.png"
                 alt="Process"
                 width={960}
                 height={600}
@@ -197,7 +197,7 @@ export default function Home() {
 
             <div className="flex justify-center">
               <Image
-                src="/images/home7.png"
+                src="/home7.png"
                 alt="Steps"
                 width={960}
                 height={600}
@@ -207,7 +207,7 @@ export default function Home() {
 
             <div className="flex justify-center">
               <Image
-                src="/images/home8.png"
+                src="/home8.png"
                 alt="Support"
                 width={960}
                 height={600}
@@ -217,7 +217,7 @@ export default function Home() {
 
             <div className="flex justify-center">
               <Image
-                src="/images/home9.png"
+                src="/home9.png"
                 alt="Final"
                 width={960}
                 height={600}
