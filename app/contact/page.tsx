@@ -23,21 +23,17 @@ export default function Contact() {
     }));
   };
 
-  // WhatsApp number (replace with your number in international format, e.g., 2348012345678)
   const whatsappNumber = '2348012345678';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Build WhatsApp message from form data
     const whatsappText = encodeURIComponent(
       `Hello Moni Africa!\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
     );
 
-    // Open WhatsApp chat in a new tab with pre-filled message
     window.open(`https://wa.me/${whatsappNumber}?text=${whatsappText}`, '_blank');
 
-    // Show temporary confirmation and reset form
     setSubmitted(true);
     setFormData({ email: '', name: '', phone: '', message: '' });
     setTimeout(() => setSubmitted(false), 3000);
@@ -48,17 +44,15 @@ export default function Contact() {
       <Header />
       
       <main className="flex-grow">
-        {/* Page Title */}
         <section className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-12 text-center">
           <h1 className="text-4xl font-bold">Contact Us</h1>
         </section>
 
-        {/* Main Content */}
         <div className="max-w-4xl mx-auto px-4 py-8">
           {/* Header Image */}
           <div className="mb-8 flex justify-center">
             <Image
-              src="https://lendig0.simdif.com/images/public/sd_678a1c8276e3a.jpg"
+              src="/contact1.png"
               alt="Contact Page"
               width={960}
               height={800}
