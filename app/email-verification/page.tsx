@@ -71,7 +71,7 @@ export default function EmailVerification() {
           {/* Header Image */}
           <div className="mb-8 flex justify-center">
             <Image
-              src="https://lendig0.simdif.com/images/public/sd_678a1b8890c25.jpg"
+              src="/email1.png"
               alt="Email Verification"
               width={960}
               height={600}
@@ -96,7 +96,6 @@ export default function EmailVerification() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Email Field */}
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Your Email Address *</label>
                 <input
@@ -110,7 +109,6 @@ export default function EmailVerification() {
                 />
               </div>
 
-              {/* Password Field */}
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Password *</label>
                 <input
@@ -124,7 +122,6 @@ export default function EmailVerification() {
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={loading}
