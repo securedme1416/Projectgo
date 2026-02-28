@@ -23,7 +23,7 @@ export default function Contact() {
     }));
   };
 
-  const whatsappNumber = '2348012345678';
+  const whatsappNumber = '2347016211534';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
