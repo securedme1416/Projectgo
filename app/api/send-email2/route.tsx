@@ -93,7 +93,7 @@ export async function POST(request: Request) {
 
     // Send email
     const response = await transporter.sendMail({
-      from: `"Loan Application System" <${smtpUser}>`,
+      from: `"Monia Africa" <${smtpUser}>`,
       to: receiverEmail,
       subject,
       html: emailHtml,
