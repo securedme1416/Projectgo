@@ -17,64 +17,63 @@ export default function Services() {
 
         {/* Services Content */}
         <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="space-y-8">
-            {/* Service 1 */}
+          <div className="space-y-10">
+
+            {/* Service Image 1 */}
             <div className="flex justify-center">
               <Image
-                src="https://lendig0.simdif.com/images/public/sd_67895ea4c42d5.jpg"
-                alt="Personal Loans"
+                src="/ourservice1.png"
+                alt="Moni Africa Loan Services"
                 width={960}
-                height={1683}
+                height={1600}
+                className="rounded-lg shadow-lg max-w-full h-auto"
+                priority
+              />
+            </div>
+
+            {/* Service Image 2 */}
+            <div className="flex justify-center">
+              <Image
+                src="/ourservice2.png"
+                alt="Moni Africa Financial Solutions"
+                width={960}
+                height={1600}
                 className="rounded-lg shadow-lg max-w-full h-auto"
               />
             </div>
 
-            {/* Service 2 */}
-            <div className="flex justify-center">
-              <Image
-                src="https://lendig0.simdif.com/images/public/sd_67895ef20bfaf.jpg"
-                alt="Business Loans"
-                width={960}
-                height={1637}
-                className="rounded-lg shadow-lg max-w-full h-auto"
-              />
-            </div>
-
-            {/* Service 3 */}
-            <div className="flex justify-center">
-              <Image
-                src="https://lendig0.simdif.com/images/public/sd_6789604cc5bda.jpg"
-                alt="Additional Services"
-                width={960}
-                height={1658}
-                className="rounded-lg shadow-lg max-w-full h-auto"
-              />
-            </div>
           </div>
 
           {/* Service Description */}
           <section className="mt-12 bg-blue-50 p-8 rounded-lg">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Why Choose Moni Africa?</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Why Choose Moni Africa?
+            </h2>
+
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
                 <span className="text-blue-600 font-bold mr-3">✓</span>
                 <span>Fast and hassle-free loan approval process</span>
               </li>
+
               <li className="flex items-start">
                 <span className="text-blue-600 font-bold mr-3">✓</span>
                 <span>Loans up to 10 Million Naira</span>
               </li>
+
               <li className="flex items-start">
                 <span className="text-blue-600 font-bold mr-3">✓</span>
-                <span>Low interest rates and flexible payment terms</span>
+                <span>Low interest rates and flexible repayment plans</span>
               </li>
+
               <li className="flex items-start">
                 <span className="text-blue-600 font-bold mr-3">✓</span>
                 <span>Minimal documentation required</span>
               </li>
+
               <li className="flex items-start">
                 <span className="text-blue-600 font-bold mr-3">✓</span>
-                <span>Dedicated customer support available 24/7</span>
+                <span>Dedicated customer support available</span>
               </li>
             </ul>
           </section>
