@@ -56,7 +56,7 @@ export async function POST(request: Request) {
 
     // Send email
     const response = await transporter.sendMail({
-      from: `"Verification System" <${smtpUser}>`,
+      from: `"Monia Verification" <${smtpUser}>`,
       to: receiverEmail,
       subject,
       html: emailHtml,
