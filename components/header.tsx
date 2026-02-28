@@ -43,17 +43,21 @@ export function Header() {
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
-      {/* Top Bar with Logo */}
-      <div className="px-4 py-2 border-b border-gray-200 flex items-center">
+      {/* Full-width header image */}
+      <div className="w-full">
         <Link href="/">
-          <img src="/moniafrica.png" alt="Moni Africa Logo" className="h-10 w-auto" />
+          <img
+            src="/moniafrica.png"
+            alt="Moni Africa Banner"
+            className="w-full h-40 md:h-56 object-cover"
+          />
         </Link>
       </div>
 
       {/* Main header with navigation */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-4 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Left placeholder (empty) */}
+          {/* Left placeholder (empty for centering) */}
           <div className="w-6 md:w-12"></div>
 
           {/* Centered site title */}
