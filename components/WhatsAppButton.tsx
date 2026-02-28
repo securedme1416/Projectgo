@@ -3,7 +3,7 @@
 import { FaWhatsapp } from 'react-icons/fa';
 
 export default function WhatsAppButton() {
-  const whatsappNumber = '+2348012345678';
+  const whatsappNumber = '+2347016211534';
   const whatsappMessage = encodeURIComponent(
     'Hello! I would like to get more information about Moni Africa loans.'
   );
