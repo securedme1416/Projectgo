@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import { FaWhatsapp } from 'react-icons/fa'; // WhatsApp icon
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -24,12 +25,15 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log('Form submitted:', formData);
     setSubmitted(true);
     setFormData({ email: '', name: '', phone: '', message: '' });
     setTimeout(() => setSubmitted(false), 3000);
   };
+
+  // WhatsApp number (replace with your number in international format, e.g., 2348012345678)
+  const whatsappNumber = '2348012345678';
+  const whatsappMessage = encodeURIComponent('Hello! I want to chat with Moni Africa.');
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -65,7 +69,6 @@ export default function Contact() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Email Field */}
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Email Address</label>
                 <input
@@ -79,7 +82,6 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Name Field */}
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Name</label>
                 <input
@@ -93,20 +95,18 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Phone Field */}
               <div>
-                <label className="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                <label className="block text-gray-700 font-semibold mb-2">Phone / WhatsApp Number</label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
-                  placeholder="Your Phone Number"
+                  placeholder="Your Phone or WhatsApp Number"
                 />
               </div>
 
-              {/* Message Field */}
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Your Message</label>
                 <textarea
@@ -120,7 +120,6 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition"
@@ -131,7 +130,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Information */}
-          <div className="bg-blue-50 rounded-lg p-8">
+          <div className="bg-blue-50 rounded-lg p-8 mb-8">
             <h3 className="text-xl font-bold text-gray-800 mb-4">Get In Touch</h3>
             <p className="text-gray-700 mb-4">
               Have questions about our loan services? We're here to help! Fill out the form above and one of our representatives will contact you shortly.
@@ -139,6 +138,19 @@ export default function Contact() {
             <p className="text-gray-700">
               For urgent inquiries, please call us directly or visit our office during business hours.
             </p>
+          </div>
+
+          {/* Centered WhatsApp Button */}
+          <div className="flex justify-center mb-12">
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition-all"
+            >
+              <FaWhatsapp size={24} />
+              <span>Chat with us on WhatsApp</span>
+            </a>
           </div>
         </div>
       </main>
