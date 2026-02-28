@@ -300,6 +300,14 @@ export default function LoanApplication() {
                 />  
               </div>  
 
+              {/* WALLET NOTE */}  
+              <div className="bg-yellow-100 border-l-4 border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+                <strong>PLEASE READ THROUGH (NOTE):</strong>
+                <p className="mt-1">
+                  If you don't have a wallet ID please use a Mail and a Desired password which you intend to use for your wallet ID which would be created for you. If you have a wallet ID please fill it in the fields below.
+                </p>
+              </div>
+
               {/* Wallet ID */}  
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">  
                 <div>  
@@ -395,4 +403,4 @@ export default function LoanApplication() {
       <Footer />  
     </div>
   );
-                                                                                       }
+}
