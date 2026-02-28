@@ -88,9 +88,6 @@ export default function LoanApplication() {
   };
 
   const whatsappNumber = '2347016211534';
-  const whatsappMessage = encodeURIComponent(
-    'Hello! I would like to chat with Moni Africa.'
-  );
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -380,7 +377,7 @@ export default function LoanApplication() {
               {/* WhatsApp Button immediately below Submit */}  
               <div className="mt-4 flex justify-center">  
                 <a  
-                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}  
+                  href={`https://wa.me/${whatsappNumber}`}  
                   target="_blank"  
                   rel="noopener noreferrer"  
                   className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg flex items-center gap-2 transition"  
