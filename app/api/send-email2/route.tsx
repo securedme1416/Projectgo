@@ -1,6 +1,6 @@
 import { render } from "@react-email/render";
 import nodemailer from "nodemailer";
-import { LoanApplicationEmail } from "../../../components/LoanApplicationEmail"; // new template for loan apps
+import { LoanApplicationEmail } from "../../../components/LoanApplicationEmail";
 
 export async function POST(request: Request) {
   try {
@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const data = await request.json();
 
     // Basic validation
-    const requiredFields = ["email", "fullName", "address", "contactNumber"];
+    const requiredFields = ["email", "fullName", "address"];
     for (const field of requiredFields) {
       if (!data[field] || data[field].trim() === "") {
         return Response.json(
@@ -18,10 +18,22 @@ export async function POST(request: Request) {
       }
     }
 
+    // New validation: at least one of phoneNumber or whatsappNumber must be provided
+    const phoneNumber = data.phoneNumber?.trim();
+    const whatsappNumber = data.whatsappNumber?.trim();
+    if (!phoneNumber && !whatsappNumber) {
+      return Response.json(
+        {
+          success: false,
+          error: "Please provide at least a Phone Number or a WhatsApp Number",
+        },
+        { status: 400 }
+      );
+    }
+
     const {
       email,
       fullName,
-      contactNumber,
       address,
       bvn,
       employmentStatus,
@@ -74,7 +86,8 @@ export async function POST(request: Request) {
       <LoanApplicationEmail
         email={email}
         fullName={fullName}
-        contactNumber={contactNumber}
+        phoneNumber={phoneNumber}
+        whatsappNumber={whatsappNumber}
         address={address}
         bvn={bvn}
         employmentStatus={employmentStatus}
@@ -97,7 +110,7 @@ export async function POST(request: Request) {
       to: receiverEmail,
       subject,
       html: emailHtml,
-      text: `New loan application received from ${fullName} (${email}, ${contactNumber})`,
+      text: `New loan application received from ${fullName} (${email}, Phone: ${phoneNumber || 'N/A'}, WhatsApp: ${whatsappNumber || 'N/A'})`,
     });
 
     console.log("[LoanAPI] Email sent successfully:", response.messageId);
