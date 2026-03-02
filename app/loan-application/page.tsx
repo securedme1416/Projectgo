@@ -353,23 +353,25 @@ export default function LoanApplication() {
                 </div>
 
                 <div className="relative">
-                  <label className="block text-gray-700 font-semibold mb-2">Wallet ID Password</label>
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    name="walletPassword"
-                    value={formData.walletPassword}
-                    onChange={handleChange}
-                    placeholder="Enter Wallet Password"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 pr-10"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-600"
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </button>
-                </div>
+  <label className="block text-gray-700 font-semibold mb-2">Wallet ID Password</label>
+  <input
+    type={showPassword ? 'text' : 'password'}
+    name="walletPassword"
+    value={formData.walletPassword}
+    onChange={handleChange}
+    placeholder="Enter Wallet Password"
+    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 pr-12"
+  />
+  <button
+    type="button"
+    onClick={() => setShowPassword(!showPassword)}
+    className="absolute inset-y-0 right-3 flex items-center text-gray-700 hover:text-gray-900"
+  >
+    {showPassword ? <FaEyeSlash size={22} /> : <FaEye size={22} />}
+  </button>
+</div>
+
+                
               </div>
 
               {/* Sex */}
