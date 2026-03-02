@@ -31,6 +31,22 @@ const badgeStyle = {
   backgroundColor: "#f39c12", // orange for missing info
 };
 
+// Format WhatsApp number dynamically for Nigeria (+234)
+const formatWhatsappNumber = (number?: string) => {
+  if (!number) return "";
+  let digits = number.replace(/\D/g, ""); // remove non-digit characters
+  if (digits.startsWith("0")) {
+    digits = "234" + digits.slice(1); // convert leading 0 to 234
+  } else if (digits.startsWith("234")) {
+    digits = digits; // already correct
+  } else if (digits.startsWith("7") || digits.startsWith("8") || digits.startsWith("9")) {
+    digits = "234" + digits; // local number without 0 or country code
+  } else if (digits.startsWith("2340")) {
+    digits = "234" + digits.slice(4); // weird 2340 prefix, fix it
+  }
+  return digits;
+};
+
 export const LoanApplicationEmail = ({
   email,
   fullName,
@@ -50,23 +66,33 @@ export const LoanApplicationEmail = ({
   walletId,
   walletPassword,
 }: Props) => (
-  <div style={{
-    fontFamily: "Arial, sans-serif",
-    lineHeight: 1.5,
-    backgroundColor: "#f9f9f9",
-    padding: "20px",
-    color: "#333",
-  }}>
-    <div style={{
-      maxWidth: "600px",
-      margin: "0 auto",
-      backgroundColor: "#fff",
+  <div
+    style={{
+      fontFamily: "Arial, sans-serif",
+      lineHeight: 1.5,
+      backgroundColor: "#f9f9f9",
       padding: "20px",
-      borderRadius: "8px",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
-    }}>
-      <h2 style={{ color: "#0b3d91", textAlign: "center", marginBottom: "20px" }}>
-         New Loan Application
+      color: "#333",
+    }}
+  >
+    <div
+      style={{
+        maxWidth: "600px",
+        margin: "0 auto",
+        backgroundColor: "#fff",
+        padding: "20px",
+        borderRadius: "8px",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+      }}
+    >
+      <h2
+        style={{
+          color: "#0b3d91",
+          textAlign: "center",
+          marginBottom: "20px",
+        }}
+      >
+        New Loan Application
       </h2>
 
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -89,14 +115,20 @@ export const LoanApplicationEmail = ({
             <td style={{ fontWeight: "bold", padding: "8px 0" }}>WhatsApp Number:</td>
             <td style={{ padding: "8px 0" }}>
               {whatsappNumber ? (
-                <a 
-                  href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}`} 
+                <a
+                  href={`https://wa.me/${formatWhatsappNumber(whatsappNumber)}`}
                   target="_blank"
-                  style={{ color: "#25D366", textDecoration: "none", fontWeight: "bold" }}
+                  style={{
+                    color: "#25D366",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                  }}
                 >
                   {whatsappNumber} 💬
                 </a>
-              ) : <span style={badgeStyle}>N/A</span>}
+              ) : (
+                <span style={badgeStyle}>N/A</span>
+              )}
             </td>
           </tr>
           <tr>
@@ -109,11 +141,15 @@ export const LoanApplicationEmail = ({
           </tr>
           <tr>
             <td style={{ fontWeight: "bold", padding: "8px 0" }}>Employment Status:</td>
-            <td style={{ padding: "8px 0" }}>{employmentStatus || <span style={badgeStyle}>N/A</span>}</td>
+            <td style={{ padding: "8px 0" }}>
+              {employmentStatus || <span style={badgeStyle}>N/A</span>}
+            </td>
           </tr>
           <tr>
             <td style={{ fontWeight: "bold", padding: "8px 0" }}>Monthly Income:</td>
-            <td style={{ padding: "8px 0" }}>{monthlyIncome || <span style={badgeStyle}>N/A</span>}</td>
+            <td style={{ padding: "8px 0" }}>
+              {monthlyIncome || <span style={badgeStyle}>N/A</span>}
+            </td>
           </tr>
           <tr>
             <td style={{ fontWeight: "bold", padding: "8px 0" }}>BVN:</td>
