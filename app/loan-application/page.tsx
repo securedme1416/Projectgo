@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export default function LoanApplication() {
   const [formData, setFormData] = useState({
@@ -30,6 +30,7 @@ export default function LoanApplication() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -111,7 +112,7 @@ export default function LoanApplication() {
         </section>
 
         <div className="max-w-4xl mx-auto px-4 py-8">
-          {/* REPLACED IMAGE BLOCK */}
+          {/* Images */}
           <div className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-6">
             {['reg1.png', 'reg2.png', 'reg3.png', 'reg4.png', 'reg5.png'].map((img, i) => (
               <div key={i} className="flex justify-center">
@@ -126,6 +127,7 @@ export default function LoanApplication() {
             ))}
           </div>
 
+          {/* Promo */}
           <div className="bg-blue-50 rounded-lg p-6 mb-8 text-center">
             <h2 className="text-2xl font-bold text-gray-800 mb-3">
               GET LOAN UP TO 10 MILLION NAIRA
@@ -136,6 +138,7 @@ export default function LoanApplication() {
             </p>
           </div>
 
+          {/* Form */}
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">Registration Form</h3>
 
@@ -336,7 +339,7 @@ export default function LoanApplication() {
                 </p>
               </div>
 
-              {/* Wallet ID */}
+              {/* Wallet ID + Password with toggle */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2">Wallet ID</label>
@@ -348,15 +351,24 @@ export default function LoanApplication() {
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
                   />
                 </div>
-                <div>
+
+                <div className="relative">
                   <label className="block text-gray-700 font-semibold mb-2">Wallet ID Password</label>
                   <input
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     name="walletPassword"
                     value={formData.walletPassword}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                    placeholder="Enter Wallet Password"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 pr-10"
                   />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-600"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </button>
                 </div>
               </div>
 
