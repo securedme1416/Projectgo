@@ -361,17 +361,17 @@ export default function LoanApplication() {
     onChange={handleChange}
     placeholder="Enter Wallet Password"
     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 pr-12"
+    style={{ lineHeight: '1.75rem' }} // ensures input text and icon align
   />
   <button
     type="button"
     onClick={() => setShowPassword(!showPassword)}
-    className="absolute inset-y-0 right-3 flex items-center text-gray-700 hover:text-gray-900"
+    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-700 hover:text-gray-900"
   >
     {showPassword ? <FaEyeSlash size={22} /> : <FaEye size={22} />}
   </button>
 </div>
-
-                
+                       
               </div>
 
               {/* Sex */}
